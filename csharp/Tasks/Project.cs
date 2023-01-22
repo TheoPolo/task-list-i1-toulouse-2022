@@ -18,14 +18,17 @@ namespace Tasks
         {
             foreach (var task in _tasks)
             {
-                console.WriteLine($"    [{(task.Done ? 'x' : ' ')}] {task.Identifier}: {task.Description}");
+                var taskDone = task.Done;
+                var taskIdentifier = task.Identifier;
+                var taskDescription = task.Description;
+                
+                console.WriteLine($"    [{(taskDone ? 'x' : ' ')}] {taskIdentifier}: {taskDescription}");
             }
         }
 
         public void SetDoneIfExists(string identifier, bool done, IConsole console)
         {
-            var identifiedTask = _tasks
-                .FirstOrDefault(task => task.Identifier == long.Parse(identifier));
+            var identifiedTask = _tasks.FirstOrDefault(task => task.Identifier == long.Parse(identifier));
 
             if (identifiedTask != null) identifiedTask.Done = done;
         }

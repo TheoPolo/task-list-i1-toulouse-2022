@@ -42,7 +42,7 @@ namespace Tasks
 
 		private void Execute(string commandLine)
 		{
-			var commandRest = commandLine.Split(" ".ToCharArray(), 2);
+			var commandRest = commandLine.Split(' ', 2);
 			var command = commandRest[0];
 			switch (command) {
 			case "show":
@@ -69,7 +69,7 @@ namespace Tasks
 
 		private void Add(string commandLine)
 		{
-			var subcommandRest = commandLine.Split(" ".ToCharArray(), 2);
+			var subcommandRest = commandLine.Split(' ', 2);
 			var subcommand = subcommandRest[0];
 
 			if (subcommand == "project") {
@@ -78,7 +78,7 @@ namespace Tasks
             }
             
             if (subcommand == "task") {
-				var projectTask = subcommandRest[1].Split(" ".ToCharArray(), 2);
+				var projectTask = subcommandRest[1].Split(' ', 2);
 				AddTask(projectTask[0], projectTask[1]);
             }
 		}
